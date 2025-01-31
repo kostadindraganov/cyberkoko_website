@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useRef } from 'react';
-import Button from './Button';
+import Button from '../Button';
 import { SiSoundcharts } from 'react-icons/si';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';

@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Button from './Button';
+import Button from '../Button';
 import { TiLocationArrow } from 'react-icons/ti';
 
 

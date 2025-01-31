@@ -20,9 +20,10 @@ export default async function RootLayout({
 
 			<body className="bg-canvas text-ink">
 				<NuqsAdapter>
+					<Header />
 					<SkipToContent />
 					<Announcement />
-					<Header />
+					
 					<main id="main-content" role="main" tabIndex={-1}>
 						{children}
 					</main>

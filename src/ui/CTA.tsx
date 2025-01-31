@@ -30,9 +30,7 @@ export default function CTA({
 				{...props}
 			/>
 		)
-
 	if (link?.type === 'external' && link.external)
 		return <a href={stegaClean(link.external)} {...props} />
-
 	return <div {...(props as ComponentProps<'div'>)} />
 }
