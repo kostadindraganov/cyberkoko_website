@@ -1,33 +1,34 @@
-import { fetchSanityLive } from '@/sanity/lib/fetch'
-import { groq } from 'next-sanity'
-import { MODULES_QUERY } from '@/sanity/lib/queries'
-import Modules from '@/ui/modules'
-import processMetadata from '@/lib/processMetadata'
+import About from '@/ui/home/About'
+import Contact from '@/ui/home/Contact'
+import Features from '@/ui/home/Features'
+import Hero from '@/ui/home/Hero'
+import FloatingImage from '@/ui/home/Story'
+import Universe from '@/ui/home/Universe'
+import WhoAreWe from '@/ui/home/WhoAreWe'
+import Glance from '@/ui/home/Glance'
+import Labels from '@/ui/home/Labels'
+import Updates from '@/ui/home//Updates'
 
-export default async function Page() {
-	const page = await getPage()
-	return <Modules modules={page?.modules} />
+
+export default  function Page() {
+  return (
+    
+ 
+      <>
+       <Hero />
+       <About />
+       <Features />
+       <FloatingImage />
+       <Universe />
+       <WhoAreWe />
+       <Glance />
+       <Labels />
+       <Updates />
+       <Contact /> 
+      </>
+       
+       
+
+  );
 }
 
-export async function generateMetadata() {
-	const page = await getPage()
-	return processMetadata(page)
-}
-
-async function getPage() {
-	const data = await fetchSanityLive<Sanity.Page>({
-		query: groq`*[_type == 'page' && metadata.slug.current == 'index'][0]{
-			...,
-			modules[]{ ${MODULES_QUERY} },
-			metadata {
-				...,
-				'ogimage': image.asset->url + '?w=1200',
-			}
-		}`,
-	})
-
-	if (!data)
-		throw Error('No `page` document with slug "index" found in the Studio')
-
-	return data
-}
