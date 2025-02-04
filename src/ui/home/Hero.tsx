@@ -14,23 +14,52 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
     const [currentIndex, setCurrentIndex] = useState(1);
     const [hasClicked, setHasClicked] = useState(false);
-
     const [loading, setLoading] = useState(true);
     const [loadedVideos, setLoadedVideos] = useState(0);
 
-    const totalVideos = 3;
+    const totalVideos = 4;
     const nextVdRef = useRef<HTMLVideoElement>(null);
+    const mainVideoRef = useRef<HTMLVideoElement>(null);
+    const previewVideoRef = useRef<HTMLVideoElement>(null);
 
     const handleVideoLoad = () => {
-        setLoadedVideos((prev) => prev + 1);
+        console.log('handleVideoLoad called'); // Debug log
+        setLoadedVideos((prev) => {
+            const newCount = prev + 1;
+            console.log('Video loaded:', newCount);
+            if (newCount === 1) {
+                console.log('First video loaded, removing loading screen');
+                setLoading(false);
+            }
+            return newCount;
+        });
     };
 
+    // Add initialization effect
     useEffect(() => {
-            if (loadedVideos === totalVideos - 1) {
-                setLoading(false);
-            
-            }
-    }, [loadedVideos]);
+        console.log('Initializing videos...'); // Debug log
+        
+        // Force load the main video
+        const mainVideo = mainVideoRef.current;
+        if (mainVideo) {
+            mainVideo.load();
+            console.log('Main video load triggered');
+        }
+
+        // Preload the other videos
+        const videoSources = [
+            getVideoSrc(1),
+            getVideoSrc(2),
+            getVideoSrc(3),
+            getVideoSrc(4)
+        ];
+
+        videoSources.forEach(src => {
+            const video = document.createElement('video');
+            video.src = src;
+            video.load();
+        });
+    }, []);
 
     const handleMiniVdClick = () => {
         setHasClicked(true);
@@ -114,7 +143,7 @@ const Hero = () => {
                                 className="origin-center scale-50 opacity-0  transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
                             >
                                 <video
-                                    ref={nextVdRef}
+                                    ref={previewVideoRef}
                                     src={getVideoSrc((currentIndex % totalVideos) + 1)}
                                     loop
                                     muted
@@ -136,9 +165,8 @@ const Hero = () => {
                         onLoadedData={handleVideoLoad}
                     />
                     <video
-                        src={getVideoSrc(
-                            currentIndex === totalVideos - 1 ? 1 : currentIndex
-                        )}
+                        ref={mainVideoRef}
+                        src={getVideoSrc(currentIndex === totalVideos - 1 ? 1 : currentIndex)}
                         autoPlay
                         loop
                         muted

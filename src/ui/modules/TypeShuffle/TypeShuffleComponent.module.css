@@ -1,0 +1,50 @@
+.content {
+	display: grid;
+	gap: 1rem;
+	max-width: 830px;
+	padding: 7vh 2rem 0;
+}
+
+
+.effects {
+	margin-top: auto;
+	padding: 2rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.effects button {
+	border: 0;
+	color: inherit;
+	white-space: nowrap;
+	background: none;
+	text-transform: inherit;
+	font: inherit;
+	cursor: pointer;
+	color: var(--color-link);
+	font-size: 0.75rem;
+	text-transform: lowercase;
+}
+
+.effects button::before {
+	content: "[";
+	margin-right: 0.5rem;
+	display: inline-block;
+}
+
+.effects button::after {
+	content: "]";
+	margin-left: 0.5rem;
+	display: inline-block;
+}
+
+.effects button:hover {
+	color: var(--color-link-hover);
+}
+
+.splitting .words .word {
+	white-space: nowrap;
+}
+
+
