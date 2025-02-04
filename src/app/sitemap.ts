@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		query: groq`{
 			'pages': *[
 				_type == 'page' &&
-				!(metadata.slug.current in ['404', 'blog/*']) &&
+				!(metadata.slug.current in ['404', 'blog/*', 'projects/*']) &&
 				metadata.noIndex != true
 			]|order(metadata.slug.current){
 				'url': $baseUrl + select(metadata.slug.current == 'index' => '', metadata.slug.current),
@@ -19,6 +19,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			},
 			'blog': *[_type == 'blog.post' && metadata.noIndex != true]|order(name){
 				'url': $baseUrl + 'blog/' + metadata.slug.current,
+				'lastModified': _updatedAt,
+				'priority': 0.4
+			},
+			'projects': *[_type == 'projects.project' && metadata.noIndex != true]|order(name){
+				'url': $baseUrl + 'projects/' + metadata.slug.current,
 				'lastModified': _updatedAt,
 				'priority': 0.4
 			}

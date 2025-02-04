@@ -2,6 +2,9 @@ import AccordionList from './AccordionList'
 import BlogFrontpage from './blog/BlogFrontpage'
 import BlogList from './blog/BlogList'
 import BlogPostContent from './blog/PostContent'
+import ProjectsFrontpage from './projects/ProjectsFrontpage'
+import ProjectsList from './projects/ProjectsList'
+import ProjectsProjectContent from './projects/ProjectsContent'
 import Breadcrumbs from './Breadcrumbs'
 import Callout from './Callout'
 import CardList from './CardList'
@@ -27,10 +30,12 @@ export default function Modules({
 	modules,
 	page,
 	post,
+	projects
 }: {
 	modules?: Sanity.Module[]
 	page?: Sanity.Page
-	post?: Sanity.BlogPost
+	post?: Sanity.BlogPost,
+	projects?: Sanity.ProjectsProject
 }) {
 	return (
 		<>
@@ -44,11 +49,17 @@ export default function Modules({
 						return <BlogList {...module} key={module._key} />
 					case 'blog-post-content':
 						return <BlogPostContent {...module} post={post} key={module._key} />
+						case 'projects-frontpage':
+							return <ProjectsFrontpage {...module} key={module._key} />
+						case 'projects-list':
+							return <ProjectsList {...module} key={module._key} />
+						case 'projects-project-content':
+							return <ProjectsProjectContent {...module} projects={projects} key={module._key} />
 					case 'breadcrumbs':
 						return (
 							<Breadcrumbs
 								{...module}
-								currentPage={post || page}
+								currentPage={post || page || projects }
 								key={module._key}
 							/>
 						)

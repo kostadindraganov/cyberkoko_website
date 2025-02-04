@@ -13,6 +13,8 @@ import person from './documents/person'
 import pricing from './documents/pricing'
 import reputation from './documents/reputation'
 import testimonial from './documents/testimonial'
+import projectsProject from './documents/projects.project'
+import projectsCategory from './documents/projects.category'
 
 // objects
 import cta from './objects/cta'
@@ -26,6 +28,9 @@ import accordionList from './modules/accordion-list'
 import blogFrontpage from './modules/blog-frontpage'
 import blogList from './modules/blog-list'
 import blogPostContent from './modules/blog-post-content'
+import projectsFrontpage from './modules/projects-frontpage'
+import projectsList from './modules/projects-list'
+import projectsProjectContent from './modules/projects-project-content'
 import breadcrumbs from './modules/breadcrumbs'
 import callout from './modules/callout'
 import cardList from './modules/card-list'
@@ -61,6 +66,8 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	pricing,
 	reputation,
 	testimonial,
+	projectsProject,
+	projectsCategory,
 
 	// objects
 	cta,
@@ -71,8 +78,11 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	// modules
 	accordionList,
 	blogFrontpage,
+	projectsFrontpage,
 	blogList,
+	projectsList,
 	blogPostContent,
+	projectsProjectContent,
 	breadcrumbs,
 	callout,
 	cardList,

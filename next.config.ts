@@ -39,6 +39,7 @@ export default {
 				destination.type == 'internal' =>
 					select(
 						destination.internal->._type == 'blog.post' => '/blog/',
+						destination.internal->._type == 'projects.project' => '/projects/',
 						'/'
 					) + destination.internal->.metadata.slug.current,
 				destination.external

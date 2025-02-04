@@ -50,6 +50,7 @@ export const MODULES_QUERY = groq`
 		link{ ${LINK_QUERY} }
 	},
 	_type == 'blog-list' => { filteredCategory-> },
+	_type == 'projects-list' => { filteredCategory-> },
 	_type == 'breadcrumbs' => { crumbs[]{ ${LINK_QUERY} } },
 	_type == 'card-list' => {
 		cards[]{

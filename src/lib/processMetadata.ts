@@ -4,7 +4,7 @@ import { vercelPreview } from './env'
 import type { Metadata } from 'next'
 
 export default async function processMetadata(
-	page: Sanity.Page | Sanity.BlogPost,
+	page: Sanity.Page | Sanity.BlogPost | Sanity.ProjectsProject,
 ): Promise<Metadata> {
 	const site = await getSite()
 

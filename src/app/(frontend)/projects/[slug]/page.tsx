@@ -8,36 +8,36 @@ import processMetadata from '@/lib/processMetadata'
 
 export default async function Page({ params }: Props) {
 	const page = await getPageTemplate()
-	const post = await getPost(await params)
-	console.log(page);
+	const projects = await getProjects(await params)
 
-	if (!page)
-		throw Error('No `page` document with slug "blog/*" found in the Studio')
+	console.log(projects);
 
-	if (!post) notFound()
+	// if (!page)
+	// 	throw Error('No `page` document with slug "projects/*" found in the Studio')
 
-	return <Modules modules={page?.modules} page={page} post={post} />
+	// if (!projects) notFound()
+
+	return <Modules modules={page?.modules} page={page} projects={projects} />
 }
 
 export async function generateMetadata({ params }: Props) {
-	const post = await getPost(await params)
+	const projects = await getProjects(await params)
 
-	if (!post) notFound()
+	if (!projects) notFound()
 
-	return processMetadata(post)
+	return processMetadata(projects)
 }
 
 export async function generateStaticParams() {
 	const slugs = await client.fetch<string[]>(
-		groq`*[_type == 'blog.post' && defined(metadata.slug.current)].metadata.slug.current`,
+		groq`*[_type == 'projects.project' && defined(metadata.slug.current)].metadata.slug.current`,
 	)
-
 	return slugs.map((slug) => ({ slug }))
 }
 
-async function getPost(params: { slug?: string }) {
-	return await fetchSanityLive<Sanity.BlogPost>({
-		query: groq`*[_type == 'blog.post' && metadata.slug.current == $slug][0]{
+async function getProjects(params: { slug?: string }) {
+	return await fetchSanityLive<Sanity.ProjectsProject>({
+		query: groq`*[_type == 'projects.project' && metadata.slug.current == $slug][0]{
 			...,
 			body[]{
 				...,
@@ -61,11 +61,13 @@ async function getPost(params: { slug?: string }) {
 
 async function getPageTemplate() {
 	return await fetchSanityLive<Sanity.Page>({
-		query: groq`*[_type == 'page' && metadata.slug.current == 'blog/*'][0]{
+		
+		query: groq`*[_type == 'page' && metadata.slug.current == 'projects/*'][0]{
 			...,
 			modules[]{ ${MODULES_QUERY} },
 			metadata { slug }
 		}`,
+		
 	})
 }
 

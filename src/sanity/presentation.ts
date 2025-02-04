@@ -25,6 +25,10 @@ export const presentation = presentationTool({
 				route: '/blog/:slug',
 				filter: groq`_type == 'blog.post' && metadata.slug.current == $slug`,
 			},
+			{
+				route: '/projects/:slug',
+				filter: groq`_type == 'projects.project' && metadata.slug.current == $slug`,
+			},
 		],
 	},
 })

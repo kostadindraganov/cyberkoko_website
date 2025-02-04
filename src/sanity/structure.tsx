@@ -14,8 +14,12 @@ export const structure = structureTool({
 				S.divider(),
 
 				S.documentTypeListItem('page').title('Pages').icon(VscMultipleWindows),
+				S.divider(),
 				S.documentTypeListItem('blog.post').title('Blog posts'),
 				S.documentTypeListItem('blog.category').title('Blog categories'),
+				S.divider(),
+				S.documentTypeListItem('projects.project').title('Projects'),
+				S.documentTypeListItem('projects.category').title('Projects categories'),
 				S.divider(),
 
 				S.documentTypeListItem('navigation'),

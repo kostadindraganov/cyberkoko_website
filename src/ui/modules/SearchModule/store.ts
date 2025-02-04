@@ -3,7 +3,7 @@ import { create } from 'zustand'
 import { groq } from 'next-sanity'
 import { fetchSanityLive } from '@/sanity/lib/fetch'
 
-export type SearchScope = 'all' | 'pages' | 'blog posts' | undefined
+export type SearchScope = 'all' | 'pages' | 'blog posts' | 'projects project'| undefined
 
 type SearchResults = Sanity.PageBase[]
 
@@ -62,10 +62,20 @@ export async function handleSearch({
 					] match $query
 				`
 
+				case 'projects project':
+					return groq`
+						_type == 'projects.project' &&
+						[
+							body[].children[].text,
+							metadata.title,
+							metadata.description
+						] match $query
+					`
+
 			default:
 				return groq`
-					_type in ['page', 'blog.post'] &&
-					!(metadata.slug.current in ['404', 'blog/*']) &&
+					_type in ['page', 'blog.post', 'projects.project'] &&
+					!(metadata.slug.current in ['404', 'blog/*', 'projects/*']) &&
 					[
 						body[].children[].text,
 						modules[].content[].children[].text,

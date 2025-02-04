@@ -21,7 +21,7 @@ export default defineType({
 			name: 'scope',
 			type: 'string',
 			options: {
-				list: ['all', 'pages', 'blog posts'],
+				list: ['all', 'pages', 'blog posts', 'projects project'],
 				layout: 'radio',
 			},
 			initialValue: 'all',

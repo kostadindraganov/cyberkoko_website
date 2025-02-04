@@ -31,6 +31,9 @@ export default defineType({
 				{ type: 'blog-frontpage' },
 				{ type: 'blog-list' },
 				{ type: 'blog-post-content' },
+				{ type: 'projects-frontpage' },
+				{ type: 'projects-list' },
+				{ type: 'projects-project-content' },
 				{ type: 'breadcrumbs' },
 				{ type: 'callout' },
 				{ type: 'card-list' },
@@ -67,12 +70,17 @@ export default defineType({
 							name: 'blog',
 							of: ['blog-frontpage', 'blog-list', 'blog-post-content'],
 						},
+						{
+							name: 'projects',
+							of: ['projects-frontpage', 'projects-list', 'projects-project-content'],
+						},
 						{ name: 'hero', of: ['hero', 'hero.saas', 'hero.split'] },
 						{
 							name: 'lists',
 							of: [
 								'accordion-list',
 								'blog-list',
+								'projects-list',
 								'card-list',
 								'flag-list',
 								'logo-list',
@@ -112,6 +120,7 @@ export default defineType({
 				(slug === '404' && VscQuestion) ||
 				(slug === 'search' && VscSearch) ||
 				(['blog', 'blog/*'].includes(slug) && VscEdit) ||
+				(['projects', 'projects/*'].includes(slug) && VscEdit) ||
 				(noindex && VscEyeClosed),
 		}),
 	},
