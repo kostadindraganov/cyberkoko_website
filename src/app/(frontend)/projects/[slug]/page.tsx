@@ -12,10 +12,10 @@ export default async function Page({ params }: Props) {
 
 	console.log(projects);
 
-	// if (!page)
-	// 	throw Error('No `page` document with slug "projects/*" found in the Studio')
+	if (!page)
+		throw Error('No `page` document with slug "projects/*" found in the Studio')
 
-	// if (!projects) notFound()
+	if (!projects) notFound()
 
 	return <Modules modules={page?.modules} page={page} projects={projects} />
 }
