@@ -25,16 +25,16 @@ export async function getSite() {
 		query: groq`
 			*[_type == 'site'][0]{
 				...,
-				ctas[]{ ${CTA_QUERY} },
+				// ctas[]{ ${CTA_QUERY} },
 				// headerMenu->{ ${NAVIGATION_QUERY} },
 				// footerMenu->{ ${NAVIGATION_QUERY} },
-				social->{ ${NAVIGATION_QUERY} },
-				'ogimage': ogimage.asset->url
+				// social->{ ${NAVIGATION_QUERY} },
+				// 'ogimage': ogimage.asset->url
 			}
 		`,
 	})
 
-	// if (!data) throw Error('No `site` document found in the Studio')
+	if (!data) throw Error('No `site` document found in the Studio')
 
 	return data
 }
