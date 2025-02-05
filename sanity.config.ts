@@ -1,7 +1,7 @@
 'use client'
 
 import { defineConfig } from 'sanity'
-import { projectId, dataset, apiVersion } from '@/sanity/lib/env'
+import { projectId, dataset, apiVersion } from './src/sanity/lib/env'
 import { icon, structure } from './src/sanity/structure'
 import { presentation } from './src/sanity/presentation'
 import {
