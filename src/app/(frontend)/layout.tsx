@@ -2,8 +2,8 @@
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import SkipToContent from '@/ui/SkipToContent'
 import Announcement from '@/ui/Announcement'
-import Header from '@/ui/header'
-import Footer from '@/ui/footer'
+// import Header from '@/ui/header'
+// import Footer from '@/ui/footer'
 import VisualEditingControls from '@/ui/VisualEditingControls'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -21,7 +21,7 @@ export default async function RootLayout({
 
 			<body className="bg-canvas text-ink">
 				<NuqsAdapter>
-					<Header />
+					{/* <Header /> */}
 					<SkipToContent />
 					<Announcement />
 					<main id="main-content" role="main" tabIndex={-1}>
