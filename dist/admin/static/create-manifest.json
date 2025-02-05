@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "createdAt": "2025-02-05T19:29:24.732Z",
+  "workspaces": [
+    {
+      "name": "default",
+      "title": "SanityPress",
+      "basePath": "/admin",
+      "projectId": "lbychfcz",
+      "dataset": "production",
+      "icon": "<img alt=\"SanityPress\" src=\"/favicon.ico\" style=\"width:100%;aspect-ratio:1\">",
+      "schema": "74668834.create-schema.json",
+      "tools": "7df75d1c.create-tools.json"
+    }
+  ]
+}
