@@ -18,7 +18,7 @@ export default  function Page() {
       <>
        {/* <Hero /> */}
        <About />
-       <Features />
+       {/* <Features />
        <FloatingImage />
        <Universe />
        <WhoAreWe />
@@ -26,7 +26,7 @@ export default  function Page() {
        <Labels />
        <Updates />
        <Contact /> 
-       {/* <TypeShuffleComponent effect='fx1'>
+       <TypeShuffleComponent effect='fx1'>
         <b>Aria McDonald</b>
         <b>Creative Web Developer</b>
         <b>5 years experience - HTML, CSS, JavaScript. Passion for creativity in the digital space. Problem solver. Hiker, guitar player, culinary enthusiast. Constantly seeking new challenges, growth opportunities.Bringing imaginative ideas to life. Skilled in modern web development frameworks such as React and Angular. Strong understanding of UI/UX design principles and ability to create visually appealing and usable websites.</b>
