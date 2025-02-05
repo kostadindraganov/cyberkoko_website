@@ -34,7 +34,7 @@ export async function getSite() {
 		`,
 	})
 
-	if (!data) throw Error('No `site` document found in the Studio')
+	// if (!data) throw Error('No `site` document found in the Studio')
 
 	return data
 }

@@ -8,15 +8,13 @@ import WhoAreWe from '@/ui/home/WhoAreWe'
 import Glance from '@/ui/home/Glance'
 import Labels from '@/ui/home/Labels'
 import Updates from '@/ui/home/Updates'
-import Header from '@/ui/header'
-import Footer from '@/ui/footer'
 // import TypeShuffleComponent from '@/ui/modules/TypeShuffle'
 
 
 export default  function Page() {
   return (
       <>
-      <Header />
+      
        <Hero /> 
        <About />
        <Features />
@@ -27,7 +25,6 @@ export default  function Page() {
        <Labels />
        <Updates />
        <Contact /> 
-       <Footer />
        {/* <TypeShuffleComponent effect='fx1'>
         <b>Aria McDonald</b>
         <b>Creative Web Developer</b>
