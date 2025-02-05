@@ -27,7 +27,7 @@ export default async function RootLayout({
 					<main id="main-content" role="main" tabIndex={-1}>
 						{children}
 					</main>
-					{/* <Footer /> */}
+					<Footer />
 					<VisualEditingControls />
 				</NuqsAdapter>
 				<Analytics />
