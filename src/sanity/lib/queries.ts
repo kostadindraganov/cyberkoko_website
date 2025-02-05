@@ -26,8 +26,8 @@ export async function getSite() {
 			*[_type == 'site'][0]{
 				...,
 				ctas[]{ ${CTA_QUERY} },
-				headerMenu->{ ${NAVIGATION_QUERY} },
-				footerMenu->{ ${NAVIGATION_QUERY} },
+				// headerMenu->{ ${NAVIGATION_QUERY} },
+				// footerMenu->{ ${NAVIGATION_QUERY} },
 				social->{ ${NAVIGATION_QUERY} },
 				'ogimage': ogimage.asset->url
 			}
