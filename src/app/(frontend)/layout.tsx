@@ -24,15 +24,12 @@ export default async function RootLayout({
 					<Header />
 					<SkipToContent />
 					<Announcement />
-					
 					<main id="main-content" role="main" tabIndex={-1}>
 						{children}
 					</main>
 					<Footer />
-
 					<VisualEditingControls />
 				</NuqsAdapter>
-
 				<Analytics />
 				<SpeedInsights />
 			</body>

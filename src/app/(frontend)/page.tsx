@@ -8,7 +8,7 @@ import WhoAreWe from '@/ui/home/WhoAreWe'
 import Glance from '@/ui/home/Glance'
 import Labels from '@/ui/home/Labels'
 import Updates from '@/ui/home/Updates'
-import TypeShuffleComponent from '@/ui/modules/TypeShuffle'
+// import TypeShuffleComponent from '@/ui/modules/TypeShuffle'
 
 
 export default  function Page() {
@@ -17,7 +17,7 @@ export default  function Page() {
  
       <>
        {/* <Hero /> */}
-       <About />
+       {/* <About /> */}
        {/* <Features />
        <FloatingImage />
        <Universe />
